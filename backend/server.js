@@ -11,10 +11,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// ✅ MongoDB Connect
-const mongoose = require("mongoose");
-
-// Connect to MongoDB Atlas
+// ✅ MongoDB Connect (Atlas)
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -25,7 +22,6 @@ mongoose.connect(process.env.MONGO_URI, {
 .catch((err) => {
   console.error("❌ MongoDB Connection Error:", err);
 });
-
 
 // ✅ Razorpay Instance
 const razorpay = new Razorpay({
@@ -38,6 +34,7 @@ app.post('/api/create-order', async (req, res) => {
   try {
     const { amountINR, date, slot, name, mobile, email } = req.body;
 
+    // Check if slot already booked
     const existing = await Booking.findOne({ date, slot, paid: true });
     if (existing) return res.status(409).json({ error: 'Slot already booked' });
 
@@ -90,4 +87,9 @@ app.get('/api/booked-slots/:date', async (req, res) => {
   res.json({ slots: booked.map(s => s.slot) });
 });
 
-app.listen(4000, () => console.log("🚀 Server running on http://localhost:4000"));
+// ⚠️ PORT must be process.env.PORT for Render
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT, () =>
+  console.log(`🚀 Server running on port ${PORT}`)
+);
