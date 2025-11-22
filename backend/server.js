@@ -11,6 +11,17 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+
+const path = require("path");
+
+// Serve frontend files
+app.use(express.static(path.join(__dirname, "../frontend/public")));
+
+// For any unknown route → return index.html
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/public/index.html"));
+});
+
 // ✅ MongoDB Connect (Atlas)
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
