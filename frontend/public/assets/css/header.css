@@ -1,0 +1,89 @@
+img {
+  height: auto;
+  width: 200px;
+}
+
+/* Navbar */
+header {
+  background-color:white;
+  position: fixed;
+  width: 100%;
+  left: -0px;
+  top: 0;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 25px;
+}
+
+.logo img {
+  width: 200px;
+  height: 50px;
+  object-fit: contain;
+  
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.menu li a {
+  color:black;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.3s ease;
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu li a:hover {
+  color: gold;
+}
+
+/* Hamburger Icon */
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+/* ✅ MOBILE VIEW */
+@media (max-width: 768px) {
+    
+  .menu {
+    position: fixed;
+    top: 80px;
+    right: -100%;
+    width: 60%;
+    height: 50vh;
+    background: #1A3D64;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 40px 25px;
+    gap: 18px;
+    transition: 0.4s ease;
+  }
+
+  /* Show menu icon */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Slide menu when checked */
+  #menu-toggle:checked ~ .menu {
+    right: 0;
+  }
+}
