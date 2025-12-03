@@ -41,12 +41,12 @@
       margin-bottom:16px;
     }
 
-    h1 {
+    /* h1 {
       font-size:28px;
       margin:0 0 12px 0;
       color:#101827;
       line-height:1.15;
-    }
+    } */
 
     .lead {
       color:var(--muted);
@@ -769,4 +769,82 @@ personal health counselling section */
   .career-content h2 { font-size: 22px; }
   .career-img-wrap { height: 200px; }
   .btn-career { width: 100%; }
+}
+
+
+
+/* HERO */
+/* ABOUT HERO SECTION */
+.about-hero {
+  position: relative;
+  width: 100%;
+  min-height: 55vh;
+  padding: 80px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-align: center;
+
+  background: url("https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg")
+    center/cover no-repeat;
+  overflow: hidden;
+  margin-top: 100px;
+}
+
+/* Blur Overlay */
+.about-hero .hero-overlay {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* Content */
+.about-hero .hero-content {
+  position: relative;
+  max-width: 800px;
+  z-index: 2;
+}
+
+.about-hero h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.about-hero .tagline {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #f1f1f1;
+}
+
+.about-hero .intro {
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: justify;
+  color: #e8e8e8;
+  margin-top: 10px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 60px 18px;
+    min-height: 50vh;
+  }
+
+  .about-hero h1 {
+    font-size: 30px;
+  }
+
+  .about-hero .tagline {
+    font-size: 16px;
+  }
+
+  .about-hero .intro {
+    font-size: 14px;
+    line-height: 1.7;
+  }
 }

@@ -55,6 +55,10 @@ html, body {
   }
 }
 
+
+.about-content p {
+  text-align: justify;
+}
 /* Optional: Dark overlay on arrows to look nice */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
@@ -116,6 +120,7 @@ html, body {
   cursor: pointer;
   transition: 0.4s ease-in-out;
   position: relative;
+  
 
   /* Centering for desktop screens */
   left: 50%;
@@ -307,12 +312,11 @@ html, body {
   height: 95%;
   border-radius: 50%;
   object-fit: cover;
-  filter: grayscale(100%); /* 🖤 makes image black & white */
   transition: all 0.5s ease;
 }
 
 .about-img:hover {
-  background: linear-gradient(135deg, #ff7b00, #ff3c00);
+  background: linear-gradient(135deg, green);
 }
 
 .about-img:hover img {

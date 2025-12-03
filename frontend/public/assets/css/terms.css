@@ -1,0 +1,142 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: #f7faff;
+  color: #222;
+}
+
+.terms-header {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  color: #fff;
+}
+
+.terms-header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.terms-header p {
+  opacity: 0.9;
+  font-size: 16px;
+}
+
+.terms-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.term-card {
+  background: #fff;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(20, 20, 60, 0.06);
+  position: relative;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.term-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(20, 20, 60, 0.12);
+}
+
+.term-card .number {
+  font-size: 32px;
+  font-weight: 700;
+  color: #6c5ce7;
+  opacity: 0.25;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.term-card h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #1b1b2f;
+}
+
+.term-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* ========== Fade-Up Animation ========== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all .6s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile View */
+@media (max-width: 600px) {
+  .terms-header h1 { font-size: 28px; }
+  .term-card { padding: 20px; }
+  .term-card .number { font-size: 26px; }
+}
+
+
+.terms-header {
+  position: relative;
+  text-align: center;
+  padding: 120px 20px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+
+  /* 📌 Background Image */
+  background: url('../img/family-therapy-psychologist-office.jpg') center/cover no-repeat;
+}
+
+/* Dark Blur Overlay */
+.terms-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 0;
+}
+
+/* Text stays above */
+.terms-header h1,
+.terms-header p {
+  position: relative;
+  z-index: 2;
+}
+
+.terms-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.terms-header p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: auto;
+  opacity: 0.9;
+}
+
+/* 📱 Mobile View */
+@media (max-width: 600px) {
+  .terms-header {
+    padding: 80px 20px;
+  }
+
+  .terms-header h1 {
+    font-size: 28px;
+  }
+
+  .terms-header p {
+    font-size: 15px;
+  }
+}

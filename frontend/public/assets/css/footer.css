@@ -73,6 +73,37 @@ a {
   margin-top: 20px;
 }
 
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.footer-contact li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: #ddd;
+  font-size: 14px;
+}
+
+.footer-contact li i {
+  color: #a6b3ff;
+  font-size: 16px;
+}
+.footer-pargraph {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: #ddd;
+  font-size: 20px;
+  line-break: auto;
+  
+
+}
+
 /* Mobile CSS */
 @media(max-width:768px) {
   .footer-container {

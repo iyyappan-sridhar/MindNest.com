@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Privacy Policy — MindNest</title>
+
+  <!-- Fonts & icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/header.css">
+  <link rel="stylesheet" href="./assets/css/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --bg: #f7f9ff;
+      --card: #ffffff;
+      --accent: #6c5ce7;
+      --muted: #6b6b78;
+      --max: 1000px;
+      --radius: 12px;
+      --text:#172033;
+    }
+    *{box-sizing:border-box}
+    body{font-family:"Poppins",sans-serif;margin:0;background:linear-gradient(180deg,var(--bg), #eef4ff);color:var(--text);-webkit-font-smoothing:antialiased}
+    .wrap{max-width:var(--max);margin:32px auto;padding:20px}
+    .privacy{display:flex;align-items:center;gap:12px;margin-bottom:18px; margin-top: 100px;}
+    
+    h1{margin:0;font-size:22px}
+    .meta{color:var(--muted);font-size:13px;margin-top:6px}
+
+    /* Policy container */
+    .policy-card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:0 12px 36px rgba(16,24,40,0.06);
+    }
+
+    /* Table of contents */
+    .toc{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 20px}
+    .toc a{background:#f5f7ff;padding:8px 10px;border-radius:8px;color:var(--accent);text-decoration:none;font-weight:600;font-size:14px;border:1px solid rgba(108,92,231,0.06)}
+    .section{margin-top:20px}
+    .section h2{font-size:18px;margin-bottom:10px;color:#0f2133}
+    p{color:#334155;line-height:1.7;margin:8px 0}
+
+    ul{margin:8px 0 8px 18px;color:#334155}
+    li{margin:8px 0}
+
+    /* highlighted box */
+    .note{
+      background:#fff8e6;border-left:4px solid #ffd166;padding:12px;border-radius:8px;margin:12px 0;color:#5b4a00;
+    }
+
+    /* contact */
+    .contact{
+      display:flex;gap:16px;align-items:center;margin-top:12px;flex-wrap:wrap;
+    }
+    .contact .item{background:#f5f7ff;padding:10px 12px;border-radius:10px;font-weight:600;color:var(--accent) ;display:flex;gap:10px;align-items:center}
+
+    
+
+    /* small screens */
+    @media(max-width:720px){
+      .wrap{padding:14px}
+      .toc a{font-size:13px;padding:7px}
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+  <div class="wrap">
+
+    <section class="privacy">
+      
+      <div>
+        <h1>Privacy Policy — MindNest</h1>
+        <div class="meta">Effective date: <strong>December 1, 2025</strong> • Last updated: December 1, 2025</div>
+      </div>
+   </section>
+
+    <div class="policy-card">
+
+      <p>At <strong>MindNest</strong> ("we", "us", "our") we respect your privacy and are committed to protecting your personal data.
+      This Privacy Policy explains what information we collect, how we use it, how we share it (including with payment processors like Razorpay),
+      and your choices and rights. Use this page when applying for Razorpay API access and publish it on your website.</p>
+
+      <div class="toc" aria-label="quick links">
+        <a href="#1">What we collect</a>
+        <a href="#2">How we use data</a>
+        <a href="#3">Payment & Razorpay</a>
+        <a href="#4">Cookies</a>
+        <a href="#5">Security</a>
+        <a href="#6">Data sharing</a>
+        <a href="#7">Retention</a>
+        <a href="#8">Your rights</a>
+        <a href="#9">Contact</a>
+      </div>
+
+      <!-- 1 -->
+      <section id="1" class="section">
+        <h2>1. Information We Collect</h2>
+        <p>We collect the following types of information when you interact with our services:</p>
+        <ul>
+          <li><strong>Personal information:</strong> name, email address, phone number, date of birth (optional), and profile details you provide when booking or contacting us.</li>
+          <li><strong>Booking & payment data:</strong> appointment date/time, chosen service, transaction metadata (order id, payment id) — only when you make a payment.</li>
+          <li><strong>Technical data:</strong> IP address, browser and device information, pages visited, timestamps and usage logs.</li>
+          <li><strong>Communications:</strong> messages you send via contact forms, email or chat, including any attachments you upload.</li>
+        </ul>
+      </section>
+
+      <!-- 2 -->
+      <section id="2" class="section">
+        <h2>2. How We Use Your Information</h2>
+        <p>We use the collected information to:</p>
+        <ul>
+          <li>Provide and operate counselling booking services and support.</li>
+          <li>Process payments, refunds, and invoicing.</li>
+          <li>Send appointment confirmations, reminders and important notices.</li>
+          <li>Improve, personalize, and maintain our platform.</li>
+          <li>Detect and prevent fraud or misuse of our services.</li>
+        </ul>
+      </section>
+
+      <!-- 3 -->
+      <section id="3" class="section">
+        <h2>3. Payment Processing (Razorpay)</h2>
+        <p>We use <strong>Razorpay</strong> as our payment gateway to accept online payments. When you make a payment, Razorpay may collect payment details (e.g. UPI, card or other payment instrument data) and process the transaction on our behalf.</p>
+
+        <p><strong>Important:</strong></p>
+        <ul>
+          <li>We do not store full card numbers, CVV or other sensitive payment credentials on our servers.</li>
+          <li>Order IDs, payment IDs and transaction metadata may be stored in our database for booking confirmation and reconciliation.</li>
+          <li>API keys and secrets: Our public key (Key ID) is used in the frontend; the secret key (Key Secret) is stored only on our server-side environment and is never exposed publicly. We follow industry best practices to protect these credentials.</li>
+        </ul>
+
+        <div class="note">
+          If you need to contact Razorpay support regarding payments, please use the Razorpay dashboard or email support@razorpay.com.
+        </div>
+      </section>
+
+      <!-- 4 -->
+      <section id="4" class="section">
+        <h2>4. Cookies & Tracking</h2>
+        <p>We use cookies and similar technologies to provide essential site functionality and to analyze site usage. Types of cookies we use:</p>
+        <ul>
+          <li><strong>Essential cookies:</strong> required for site operation and booking flow.</li>
+          <li><strong>Performance & analytics:</strong> (e.g., Google Analytics) to understand traffic and improve the service.</li>
+          <li><strong>Preference cookies:</strong> remember settings like language or UI preferences.</li>
+        </ul>
+
+        <p>You can manage cookies through your browser settings. Disabling certain cookies may affect the booking experience.</p>
+      </section>
+
+      <!-- 5 -->
+      <section id="5" class="section">
+        <h2>5. Security</h2>
+        <p>We implement reasonable technical and organizational measures to protect your personal data, including:</p>
+        <ul>
+          <li>Encrypting sensitive data in transit using TLS (HTTPS).</li>
+          <li>Restricting access to data on a need-to-know basis.</li>
+          <li>Using secure server environments and keeping software up to date.</li>
+        </ul>
+        <p>However, no system is completely secure — if you suspect a data breach, contact us immediately (see Contact section).</p>
+      </section>
+
+      <!-- 6 -->
+      <section id="6" class="section">
+        <h2>6. Data Sharing & Third Parties</h2>
+        <p>We may share or disclose personal data with:</p>
+        <ul>
+          <li><strong>Service providers:</strong> payment processors (Razorpay), email/SMS services (EmailJS, Twilio), hosting providers, analytics providers.</li>
+          <li><strong>Legal requests:</strong> when required by law or to protect rights and safety.</li>
+          <li><strong>Business transfers:</strong> in case of a merger or sale (with notice to users where appropriate).</li>
+        </ul>
+        <p>We require third parties to use personal data only to provide services on our behalf and to maintain appropriate safeguards.</p>
+      </section>
+
+      <!-- 7 -->
+      <section id="7" class="section">
+        <h2>7. Data Retention</h2>
+        <p>We retain personal data only as long as necessary to provide our services, comply with legal obligations, resolve disputes, and enforce agreements. Typical retention periods:</p>
+        <ul>
+          <li>Booking & payment records: retained for at least 3 years for accounting and reconciliation (or as required by local law).</li>
+          <li>Contact form messages: retained for 1 year unless required otherwise.</li>
+          <li>Account/profile information: retained while the account is active or as required.</li>
+        </ul>
+      </section>
+
+      <!-- 8 -->
+      <section id="8" class="section">
+        <h2>8. Your Rights</h2>
+        <p>Depending on your jurisdiction, you have rights related to your personal data, including:</p>
+        <ul>
+          <li>Right to access your personal data.</li>
+          <li>Right to correct inaccurate data.</li>
+          <li>Right to delete or request portability of data (subject to legal requirements).</li>
+          <li>Right to restrict or object to certain processing activities.</li>
+        </ul>
+        <p>To exercise these rights, contact us at the email below. We may need to verify your identity before fulfilling requests.</p>
+      </section>
+
+      <!-- 9 -->
+      <section id="9" class="section">
+        <h2>9. Children</h2>
+        <p>Our services are not intended for children under 16. We do not knowingly collect personal information from children under the applicable age. If you believe we have collected such data, contact us to remove it.</p>
+      </section>
+
+      <!-- 10 -->
+      <section id="10" class="section">
+        <h2>10. International Transfers</h2>
+        <p>Personal data may be processed or stored in countries other than your own. When we transfer data internationally, we use appropriate safeguards such as contractual protections required by law.</p>
+      </section>
+
+      <!-- 11 -->
+      <section id="11" class="section">
+        <h2>11. Changes to this Policy</h2>
+        <p>We may update this Privacy Policy from time to time. We will publish the updated policy on our website with the “Last updated” date. Continued use of the service after changes indicates consent to the revised policy.</p>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>If you have questions or want to exercise your privacy rights, contact our Data Protection Officer:</p>
+
+        <div class="contact">
+          <div class="item"><i class="fas fa-envelope"></i>pavithraganesh1822@gmail.com</div>
+          <div class="item"><i class="fas fa-phone"></i> +918940902102 , +919360380905 </div>
+          <div class="item"><i class="fas fa-map-marker-alt"></i> 3/15 Old Street K,Velur Arcot TK <br> Vellore DT TN - 632506 </div>
+        </div>
+
+        <p style="margin-top:12px;">You can also raise a support request via the Razorpay dashboard for payment-specific issues.</p>
+      </section>
+
+    </div>
+    </div>
+  
+<div id="footer"></div>
+   
+<script src="./assets/js/header.js"></script>
+
+  </div>
+</body>
+</html>

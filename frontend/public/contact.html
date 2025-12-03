@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="./assets/css/header.css">
   <link rel="stylesheet" href="./assets/css/iindex.css">
   <link rel="stylesheet" href="./assets/css/footer.css">
+  <link rel="stylesheet" href="./assets/css/chatbot.css">
 
   <title>Contact | MindNest </title>
    <link rel="icon" type="image/png" href="./assets/img/mind.png">
@@ -32,7 +33,7 @@
 
   <!-- Header Include -->
   <div id="header"></div>
-
+<div id="chatbotContainer"></div>
   <!-- Page Content -->
   <main>
     <!-- content goes here -->
@@ -121,7 +122,7 @@
 <script>
   // Initialize EmailJS
   (function(){
-      emailjs.init("9xHpgOY6yH6vDA2dm"); 
+      emailjs.init("2kbdkPPX92AA48WSm"); 
   })();
 
   document.getElementById("contactForm").addEventListener("submit", function(e){
@@ -136,7 +137,7 @@
       time: new Date().toLocaleString()
     };
 
-    emailjs.send("service_zc5c5qj", "template_38m70ea", params)
+    emailjs.send("service_o48woyd", "template_pc90avr", params)
       .then(() => {
         showAlert("Your request has been sent! Our counsellor will call you soon.");
         document.getElementById("contactForm").reset();
@@ -164,5 +165,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="./assets/js/header.js"></script>
 <script src="./assets/js/main.js"></script>
+<script src="./assets/js/chatbot.js"></script>
 </body>
 </html>
