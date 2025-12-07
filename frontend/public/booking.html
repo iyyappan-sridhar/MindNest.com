@@ -8,6 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/header.css">
   <link rel="stylesheet" href="./assets/css/footer.css">
+  <link rel="stylesheet" href="./assets/css/chatbot.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-WZHQM+..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
  
   <style>
     :root{--accent:#d633ff;--accent-2:#ff7ab6;--bg:#fbfbff;--card:#ffffff;--muted:#7a7a8a;--radius:16px;--maxwidth:980px}
@@ -40,6 +44,7 @@
 </head>
 <body>
   <div id="header"></div>
+  <div id="chatbotContainer"></div>
 
 <div class="wrap">
   <div class="steps">
@@ -119,7 +124,7 @@
         <div class="field">
           <label><input type="radio" name="pay" value="upi" checked> UPI / PhonePe / GPay</label><br>
           <label><input type="radio" name="pay" value="card"> Card</label><br>
-          <label><input type="radio" name="pay" value="cash"> Pay After Consultation</label>
+          <!-- <label><input type="radio" name="pay" value="cash"> Pay After Consultation</label> -->
         </div>
 
         <div class="btns">
@@ -292,7 +297,13 @@ document.getElementById('toInfo').disabled = true;
 </script>
 
 <div id="footer"></div>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script src="./assets/js/main.js"> </script>
 <script src="./assets/js/header.js"></script>
+<script src="./assets/js/chatbot.js"></script>
 </body>
 </html>
