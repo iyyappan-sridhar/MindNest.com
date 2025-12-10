@@ -1,0 +1,205 @@
+
+    :root{
+      --accent:#d633ff;
+      --accent-2:#ff7ab6;
+      --bg:#fbfbff;
+      --card:#ffffff;
+      --muted:#7a7a8a;
+      --radius:16px;
+      --maxwidth:980px
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family:"Poppins",sans-serif;
+      margin:0;
+      background:linear-gradient(180deg,#fbfbff 0%,#f2f7ff 100%);
+      color:#222
+    }
+    .wrap{
+      max-width:var(--maxwidth);
+      margin:28px auto;
+      padding:20px
+    }
+    .steps{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:20px;
+      margin-top:90px;
+    }
+    .step{
+      flex:1;
+      text-align:center;
+      padding:12px 8px;
+      border-radius:10px;
+      background:#fff;
+      box-shadow:0 6px 18px rgba(20,20,50,0.06);
+      color:var(--muted);
+      font-weight:600;
+      border:2px solid transparent
+    }
+    .step.active{
+      color:var(--accent);
+      border-color:var(--accent);
+      box-shadow:0 10px 30px rgba(214,51,255,0.08)
+    }
+    .card{
+      display:flex;
+      gap:20px;
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:0 18px 45px rgba(10,10,30,0.06)
+    }
+    .col-left{width:48%;min-width:300px}
+    .col-right{flex:1;min-width:260px}
+    .calendar{
+      background:linear-gradient(180deg,#fff,#fff);
+      border-radius:12px;
+      padding:18px
+    }
+    .cal-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:12px
+    }
+    .cal-nav button{
+      background:transparent;
+      border:0;
+      font-size:18px;
+      cursor:pointer;
+      color:var(--accent)
+    }
+    .month-title{
+      font-weight:700;
+      color:#333
+    }
+    .weekdays{
+      display:grid;
+      grid-template-columns:repeat(7,1fr);
+      text-align:center;
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:8px
+    }
+    .days{
+      display:grid;
+      grid-template-columns:repeat(7,1fr);
+      gap:8px
+    }
+    .day{
+      height:54px;
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      color:#333;
+      background:transparent;
+      border:1px solid transparent
+    }
+    .day.other{opacity:0.25}
+    .day.disabled{opacity:0.35;cursor:not-allowed}
+    .day.active{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#fff;
+      box-shadow:0 8px 20px rgba(214,51,255,0.12)
+    }
+    .slots{
+      margin-top:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px
+    }
+    .slot{
+      padding:10px 12px;
+      border-radius:10px;
+      background:#f2f4ff;
+      border:1px solid #edf0ff;
+      cursor:pointer;
+      font-weight:600
+    }
+    .slot.selected{
+      background:var(--accent);
+      color:#fff;
+      border-color:transparent;
+      box-shadow:0 8px 20px rgba(214,51,255,0.08);
+      transform:translateY(-4px)
+    }
+    .slot.disabled{
+      background:#fff;
+      color:#bbb;
+      border:1px dashed #eee;
+      cursor:not-allowed;
+      transform:none;
+      box-shadow:none
+    }
+    .panel{
+      background:#fff;
+      padding:18px;
+      border-radius:12px;
+      min-height:360px
+    }
+    .panel h3{margin:0 0 12px 0;color:#222}
+    .field{margin-bottom:12px}
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select{
+      width:100%;
+      padding:12px;
+      border-radius:10px;
+      border:1px solid #e6e6f2;
+      outline:none
+    }
+    textarea{
+      width:100%;
+      padding:12px;
+      border-radius:10px;
+      min-height:90px;
+      border:1px solid #e6e6f2
+    }
+    .btns{
+      display:flex;
+      gap:12px;
+      margin-top:14px;
+      align-items:center
+    }
+    .btn{
+      background:var(--accent);
+      color:#fff;
+      padding:10px 18px;
+      border-radius:10px;
+      border:0;
+      cursor:pointer;
+      font-weight:700
+    }
+    .btn.ghost{
+      background:#f3f4fb;
+      color:#444;
+      box-shadow:none
+    }
+    .note{
+      font-size:13px;
+      color:var(--muted);
+      margin-top:8px
+    }
+    .confirm-box{
+      text-align:center;
+      padding:25px
+    }
+    .booking-id{
+      font-weight:800;
+      color:var(--accent);
+      font-size:20px;
+      margin-top:10px
+    }
+    @media(max-width:900px){
+      .card{flex-direction:column}
+      .col-left{width:100%}
+      .col-right{width:100%}
+      .steps{flex-direction:column;gap:10px}
+    }
