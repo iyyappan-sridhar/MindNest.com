@@ -266,42 +266,61 @@ document.getElementById("toPayment").onclick=()=>{
 document.getElementById("backToStep2").onclick=()=>setStep(2);
 
 /* ===================== UPI PAYMENT ===================== */
-document.getElementById("payNow").onclick=async()=>{
- if(!selectedDate||!selectedSlot) return alert("Select date & slot");
+document.getElementById('payNow').addEventListener('click', ()=>{
 
- let payload={
-     amountINR:AMOUNT,
-     date:selectedDate,
-     slot:selectedSlot,
-     name:pname.value.trim(),
-     mobile:pmobile.value.trim(),
-     email:pemail.value.trim(),
-     type:ptype.value,
-     upi:UPI_ID,
-     paid:true
- };
+    if(!selectedDate || !selectedSlot) return alert("Select date & slot first");
 
- let upiURL=`upi://pay?pa=${UPI_ID}&pn=MindNest&am=${AMOUNT}&cu=INR&tn=Booking%20Payment`;
- window.location.href=upiURL;                         // mobile open
+    const amountINR = 199;
+    const name  = document.getElementById('pname').value.trim();
+    const mobile = document.getElementById('pmobile').value.trim();
+    const email = document.getElementById('pemail').value.trim();
+    const type  = document.getElementById('ptype').value;
 
- /* Save booking to DB */
- try{
-     const res=await fetch(`${API}/api/confirm-upi`,{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(payload)
-     });
+    if(!name || !mobile){
+        alert("Enter name & mobile");
+        return setActiveStep(2);
+    }
 
-     if(!res.ok){alert("Booking not saved. Server issue.");return;}
+    // 🔹 Only open upi – don't save booking yet!
+    const upiURL = `upi://pay?pa=iyyappanmani1247@okaxis&pn=MindNest&am=${amountINR}&cu=INR&tn=MindNest Booking`;
+    window.location.href = upiURL;
 
-     document.getElementById("bookingId").textContent="BK"+Date.now().toString().slice(-6);
-     document.getElementById("confirmSummary").innerHTML=
-     `<b>${payload.name}</b><br>${formatDate(payload.date)} • ${payload.slot}<br>Mobile: ${payload.mobile}`;
+    // 🔹 Show new button to confirm payment later
+    document.getElementById("panel3").innerHTML = `
+        <h3>Complete Payment</h3>
+        <p class="note">Please complete payment in UPI app.</p>
+        <button class="btn" id="confirmPaid">I Have Paid</button>
+        <button class="btn ghost" id="backToStep2">Back</button>
+    `;
 
-     setStep(4);
+    // After payment done manually user clicks confirm
+    setTimeout(()=>{
+        document.getElementById("confirmPaid").onclick = async ()=>{
 
- }catch(e){alert("Network error");console.log(e);}
-};
+            const payload = {amountINR,date:selectedDate,slot:selectedSlot,name,mobile,email,type,upi:"iyyappanmani1247@okaxis",paid:true};
+
+            const res = await fetch(`${API}/api/confirm-upi`,{
+                method:"POST",
+                headers:{ "Content-Type":"application/json"},
+                body: JSON.stringify(payload)
+            });
+
+            if(!res.ok) return alert("Booking not saved, contact support");
+
+            const bid = "BK" + Date.now().toString().slice(-6);
+            document.getElementById("bookingId").textContent = bid;
+
+            document.getElementById("confirmSummary").innerHTML = `
+                <div><strong>${name}</strong></div>
+                <div>${isoToReadable(selectedDate)} • ${selectedSlot}</div>
+                <div>Type: ${type}</div>
+                <div>Contact: ${mobile}</div>
+            `;
+
+            setActiveStep(4);
+        };
+    },800);
+});
 
 /* finish reset */
 document.getElementById("finishBtn").onclick=()=>{
