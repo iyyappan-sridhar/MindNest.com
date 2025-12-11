@@ -10,56 +10,71 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-/* ------------------ GET BOOKED SLOTS ------------------ */
+/* ============================================================
+   1) GET BOOKED SLOTS – used in calendar
+============================================================ */
 app.get('/api/booked-slots/:date', async (req, res) => {
-  const booked = await Booking.find({ date: req.params.date }).select("slot -_id");
-  res.json({ slots: booked.map(b => b.slot) });
-});
-
-/* ------------------ UPI CONFIRM BOOKING ------------------ */
-app.post('/api/confirm-upi', async (req,res)=>{
-  try{
-    const { date, slot, name, mobile, email, amountINR, type, upi } = req.body;
-
-    let booking = await Booking.findOne({ date, slot });
-
-    if(!booking){
-      booking = await Booking.create({
-        date, slot, name, mobile, email,
-        amount: amountINR,
-        paid: true,
-        type,
-        upi
-      });
-    } else {
-      booking.name=name;
-      booking.mobile=mobile;
-      booking.email=email;
-      booking.amount=amountINR;
-      booking.type=type;
-      booking.upi=upi;
-      booking.paid=true;
-      await booking.save();
-    }
-
-    res.json({success:true});
-  }catch(err){
-    console.log(err);
-    res.status(500).json({error:err.message});
+  try {
+    const booked = await Booking.find({ date: req.params.date, paid: true })
+                                .select("slot -_id");
+    res.json({ slots: booked.map(b => b.slot) });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 
-/* ------------------ FRONTEND SERVE ------------------ */
+/* ============================================================
+   2) CONFIRM UPI PAYMENT & SAVE BOOKING
+   This route is called AFTER user pays from UPI app.
+============================================================ */
+app.post('/api/confirm-upi', async (req, res) => {
+  try {
+    const { date, slot, name, mobile, email, amountINR, type, upi } = req.body;
+
+    // Prevent double booking
+    const alreadyBooked = await Booking.findOne({ date, slot, paid: true });
+    
+    if (alreadyBooked) {
+      return res.status(409).json({ error: "Slot already booked" });
+    }
+
+    // Create booking only after user confirms payment
+    await Booking.create({
+      date,
+      slot,
+      name,
+      mobile,
+      email,
+      amount: amountINR,
+      type,
+      upi,
+      paid: true,
+      createdAt: new Date()
+    });
+
+    res.json({ success: true });
+
+  } catch (err) {
+    console.log("UPI Save Error:", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+/* ============================================================
+   3) FRONTEND STATIC FILE SERVE
+============================================================ */
 app.use(express.static(path.join(__dirname, "../frontend/public")));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/public/index.html"));
 });
 
-/* ------------------ DATABASE & SERVER ------------------ */
+/* ============================================================
+   4) DATABASE + SERVER START
+============================================================ */
 mongoose.connect(process.env.MONGO_URI)
-.then(()=>console.log("MongoDB Connected"))
-.catch(err=>console.log(err));
+  .then(() => console.log("🍃 MongoDB Connected Successfully"))
+  .catch(err => console.log("❌ MongoDB Error:", err));
 
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, ()=> console.log(`Server Running on ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
